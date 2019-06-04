@@ -7,27 +7,26 @@ enum RequestError: Error {
 }
 
 extension URLSession {
-    func send(request: URLRequest) -> Publishers.Future<(data: Data, response: HTTPURLResponse), RequestError> {
-        Publishers.Future { fulfill in
+    func send(request: URLRequest) -> AnyPublisher<(data: Data, response: HTTPURLResponse), RequestError> {
+        AnyPublisher<(data: Data, response: HTTPURLResponse), RequestError> { subscriber in
             let task = self.dataTask(with: request) { data, response, error in
                 DispatchQueue.main.async {
                     let httpReponse = response as? HTTPURLResponse
                     if let data = data, let httpReponse = httpReponse, 200..<300 ~= httpReponse.statusCode {
-                        fulfill(.success((data, httpReponse)))
+                        _ = subscriber.receive((data, httpReponse))
+                        subscriber.receive(completion: .finished)
                     }
                     else if let httpReponse = httpReponse {
-                        fulfill(.failure(.request(code: httpReponse.statusCode, error: error)))
+                        subscriber.receive(completion: .failure(.request(code: httpReponse.statusCode, error: error)))
                     }
                     else {
-                        fulfill(.failure(.unknown))
+                        subscriber.receive(completion: .failure(.unknown))
                     }
                 }
             }
 
+            subscriber.receive(subscription: AnySubscription(task.cancel))
             task.resume()
-
-            // Can't cancel ...?
-            // AnyCancellable(task.resume)
         }
     }
 }
