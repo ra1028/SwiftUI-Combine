@@ -1,8 +1,8 @@
 import SwiftUI
 import Combine
 
-final class UserRepository: BindableObject {
-    var didChange = PassthroughSubject<UserRepository, Never>()
+final class SearchUserViewModel: BindableObject {
+    var didChange = PassthroughSubject<SearchUserViewModel, Never>()
 
     private(set) var users = [User]() {
         didSet {
