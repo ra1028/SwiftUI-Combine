@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct UserRow: View {
+struct SearchUserRow: View {
     @EnvironmentObject var viewModel: SearchUserViewModel
     @State var user: User
 
@@ -13,8 +13,10 @@ struct UserRow: View {
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.gray, lineWidth: 1))
             }
+
             Text(user.login)
                 .font(Font.system(size: 18).bold())
+
             Spacer()
             }
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))

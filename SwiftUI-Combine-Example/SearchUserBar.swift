@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct UserSearchBar: View {
+struct SearchUserBar: View {
     @Binding var text: String
     @State var action: () -> Void
 
