@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		6B194EFF22A6BA07001B3151 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194EFE22A6BA07001B3151 /* AppDelegate.swift */; };
 		6B194F0122A6BA07001B3151 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F0022A6BA07001B3151 /* SceneDelegate.swift */; };
-		6B194F0322A6BA07001B3151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F0222A6BA07001B3151 /* ContentView.swift */; };
+		6B194F0322A6BA07001B3151 /* UserSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F0222A6BA07001B3151 /* UserSearchView.swift */; };
 		6B194F0522A6BA08001B3151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B194F0422A6BA08001B3151 /* Assets.xcassets */; };
 		6B194F0822A6BA08001B3151 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B194F0722A6BA08001B3151 /* Preview Assets.xcassets */; };
 		6B194F0B22A6BA08001B3151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B194F0922A6BA08001B3151 /* LaunchScreen.storyboard */; };
+		6B194F1322A7108C001B3151 /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1222A7108C001B3151 /* UserRow.swift */; };
+		6B194F1522A710AB001B3151 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1422A710AB001B3151 /* User.swift */; };
+		6B194F1722A710E6001B3151 /* SearchUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1622A710E6001B3151 /* SearchUserResponse.swift */; };
+		6B194F1922A710FF001B3151 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1822A710FF001B3151 /* UserRepository.swift */; };
+		6B194F1B22A7112D001B3151 /* UserSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1A22A7112D001B3151 /* UserSearchBar.swift */; };
+		6B194F1D22A71154001B3151 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1C22A71154001B3151 /* FoundationExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6B194EFB22A6BA07001B3151 /* SwiftUI-Combine-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Combine-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B194EFE22A6BA07001B3151 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B194F0022A6BA07001B3151 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6B194F0222A6BA07001B3151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6B194F0222A6BA07001B3151 /* UserSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchView.swift; sourceTree = "<group>"; };
 		6B194F0422A6BA08001B3151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B194F0722A6BA08001B3151 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6B194F0A22A6BA08001B3151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B194F0C22A6BA08001B3151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B194F1222A7108C001B3151 /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
+		6B194F1422A710AB001B3151 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6B194F1622A710E6001B3151 /* SearchUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserResponse.swift; sourceTree = "<group>"; };
+		6B194F1822A710FF001B3151 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		6B194F1A22A7112D001B3151 /* UserSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchBar.swift; sourceTree = "<group>"; };
+		6B194F1C22A71154001B3151 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +68,15 @@
 		6B194EFD22A6BA07001B3151 /* SwiftUI-Combine-Example */ = {
 			isa = PBXGroup;
 			children = (
-				6B194EFE22A6BA07001B3151 /* AppDelegate.swift */,
+				6B194F0222A6BA07001B3151 /* UserSearchView.swift */,
+				6B194F1A22A7112D001B3151 /* UserSearchBar.swift */,
+				6B194F1222A7108C001B3151 /* UserRow.swift */,
+				6B194F1822A710FF001B3151 /* UserRepository.swift */,
+				6B194F1422A710AB001B3151 /* User.swift */,
+				6B194F1622A710E6001B3151 /* SearchUserResponse.swift */,
+				6B194F1C22A71154001B3151 /* FoundationExtensions.swift */,
 				6B194F0022A6BA07001B3151 /* SceneDelegate.swift */,
-				6B194F0222A6BA07001B3151 /* ContentView.swift */,
+				6B194EFE22A6BA07001B3151 /* AppDelegate.swift */,
 				6B194F0422A6BA08001B3151 /* Assets.xcassets */,
 				6B194F0922A6BA08001B3151 /* LaunchScreen.storyboard */,
 				6B194F0C22A6BA08001B3151 /* Info.plist */,
@@ -146,9 +164,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B194F1B22A7112D001B3151 /* UserSearchBar.swift in Sources */,
 				6B194EFF22A6BA07001B3151 /* AppDelegate.swift in Sources */,
 				6B194F0122A6BA07001B3151 /* SceneDelegate.swift in Sources */,
-				6B194F0322A6BA07001B3151 /* ContentView.swift in Sources */,
+				6B194F0322A6BA07001B3151 /* UserSearchView.swift in Sources */,
+				6B194F1922A710FF001B3151 /* UserRepository.swift in Sources */,
+				6B194F1722A710E6001B3151 /* SearchUserResponse.swift in Sources */,
+				6B194F1D22A71154001B3151 /* FoundationExtensions.swift in Sources */,
+				6B194F1522A710AB001B3151 /* User.swift in Sources */,
+				6B194F1322A7108C001B3151 /* UserRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +319,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ryo.SwiftUI-Combine-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -314,7 +338,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ryo.SwiftUI-Combine-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
