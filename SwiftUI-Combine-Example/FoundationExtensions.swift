@@ -7,13 +7,13 @@ enum RequestError: Error {
 }
 
 extension URLSession {
-    func send(request: URLRequest) -> AnyPublisher<(data: Data, response: HTTPURLResponse), RequestError> {
-        AnyPublisher<(data: Data, response: HTTPURLResponse), RequestError> { subscriber in
+    func send(request: URLRequest) -> AnyPublisher<Data, RequestError> {
+        AnyPublisher { subscriber in
             let task = self.dataTask(with: request) { data, response, error in
                 DispatchQueue.main.async {
                     let httpReponse = response as? HTTPURLResponse
                     if let data = data, let httpReponse = httpReponse, 200..<300 ~= httpReponse.statusCode {
-                        _ = subscriber.receive((data, httpReponse))
+                        _ = subscriber.receive(data)
                         subscriber.receive(completion: .finished)
                     }
                     else if let httpReponse = httpReponse {

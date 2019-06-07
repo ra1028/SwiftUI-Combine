@@ -1,19 +1,18 @@
 import SwiftUI
 
 struct SearchUserView: View {
-    @EnvironmentObject var viewModel: SearchUserViewModel
-    @State var text = "ra1028"
+    @ObjectBinding var viewModel = SearchUserViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
-                SearchUserBar(text: $text) {
-                    self.viewModel.search(name: self.text)
+                SearchUserBar(text: viewModel[\.name]) {
+                    self.viewModel.search()
                 }
 
                 List(viewModel.users) { user in
-                    SearchUserRow(user: user)
-                        .tapAction { print(user) }
+                    SearchUserRow(viewModel: self.viewModel, user: user)
+                        .onAppear { self.viewModel.fetchImage(for: user) }
                 }
                 }
                 .navigationBarTitle(Text("Users"))

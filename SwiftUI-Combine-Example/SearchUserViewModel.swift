@@ -4,23 +4,27 @@ import Combine
 final class SearchUserViewModel: BindableObject {
     var didChange = PassthroughSubject<SearchUserViewModel, Never>()
 
+    var name = "ra1028" {
+        didSet { didChange.send(self) }
+    }
+
     private(set) var users = [User]() {
-        didSet {
-            didChange.send(self)
-        }
+        didSet { didChange.send(self) }
     }
 
     private(set) var userImages = [User: UIImage]() {
-        didSet {
-            didChange.send(self)
-        }
+        didSet { didChange.send(self) }
     }
 
-    private var cancellable: Cancellable? {
+    private var searchCancellable: Cancellable? {
         didSet { oldValue?.cancel() }
     }
 
-    func search(name: String) {
+    deinit {
+        searchCancellable?.cancel()
+    }
+
+    func search() {
         guard !name.isEmpty else {
             return users = []
         }
@@ -29,31 +33,27 @@ final class SearchUserViewModel: BindableObject {
         urlComponents.queryItems = [
             URLQueryItem(name: "q", value: name)
         ]
+
         var request = URLRequest(url: urlComponents.url!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let assign = Subscribers.Assign(object: self, keyPath: \.users)
-        cancellable = assign
-
-        URLSession.shared.send(request: request)
-            .map { $0.data }
+        searchCancellable = URLSession.shared.send(request: request)
             .decode(type: SearchUserResponse.self, decoder: JSONDecoder())
             .map { $0.items }
             .replaceError(with: [])
-            .receive(subscriber: assign)
+            .assign(to: \.users, on: self)
     }
 
-    func getImage(for user: User) {
+    func fetchImage(for user: User) {
         guard case .none = userImages[user] else {
             return
         }
 
         let request = URLRequest(url: user.avatar_url)
-        URLSession.shared.send(request: request)
-            .map { UIImage(data: $0.data) }
+        _ = URLSession.shared.send(request: request)
+            .map { UIImage(data: $0) }
             .replaceError(with: nil)
-            .eraseToAnyPublisher()
-            .receive(subscriber: Subscribers.Sink<AnyPublisher<UIImage?, Never>> { [weak self] image in
+            .sink(receiveValue: { [weak self] image in
                 self?.userImages[user] = image
             })
     }
