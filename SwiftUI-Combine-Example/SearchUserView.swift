@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct SearchUserView: View {
-    @ObjectBinding var viewModel = SearchUserViewModel()
+    @ObservedObject var viewModel = SearchUserViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
-                SearchUserBar(text: viewModel[\.name]) {
+                SearchUserBar(text: $viewModel.name) {
                     self.viewModel.search()
                 }
 

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SearchUserRow: View {
-    @ObjectBinding var viewModel: SearchUserViewModel
+    @ObservedObject var viewModel: SearchUserViewModel
     @State var user: User
 
     var body: some View {

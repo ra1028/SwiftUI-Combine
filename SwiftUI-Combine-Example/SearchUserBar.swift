@@ -8,11 +8,7 @@ struct SearchUserBar: View {
         ZStack {
             Color.yellow
             HStack {
-                TextField(
-                    $text,
-                    placeholder: Text("Search User")
-                        .color(Color.gray)
-                    )
+                TextField("Search User", text: $text)
                     .padding([.leading, .trailing], 8)
                     .frame(height: 32)
                     .background(Color.white.opacity(0.4))

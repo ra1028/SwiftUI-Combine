@@ -1,20 +1,13 @@
 import SwiftUI
 import Combine
 
-final class SearchUserViewModel: BindableObject {
-    var didChange = PassthroughSubject<SearchUserViewModel, Never>()
+final class SearchUserViewModel: ObservableObject {
 
-    var name = "ra1028" {
-        didSet { didChange.send(self) }
-    }
+    @Published var name = "ra1028"
 
-    private(set) var users = [User]() {
-        didSet { didChange.send(self) }
-    }
+    @Published private(set) var users = [User]()
 
-    private(set) var userImages = [User: UIImage]() {
-        didSet { didChange.send(self) }
-    }
+    @Published private(set) var userImages = [User: UIImage]()
 
     private var searchCancellable: Cancellable? {
         didSet { oldValue?.cancel() }
@@ -37,10 +30,12 @@ final class SearchUserViewModel: BindableObject {
         var request = URLRequest(url: urlComponents.url!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        searchCancellable = URLSession.shared.send(request: request)
+        searchCancellable = URLSession.shared.dataTaskPublisher(for: request)
+            .map { $0.data }
             .decode(type: SearchUserResponse.self, decoder: JSONDecoder())
             .map { $0.items }
             .replaceError(with: [])
+            .receive(on: RunLoop.main)
             .assign(to: \.users, on: self)
     }
 
@@ -50,9 +45,10 @@ final class SearchUserViewModel: BindableObject {
         }
 
         let request = URLRequest(url: user.avatar_url)
-        _ = URLSession.shared.send(request: request)
-            .map { UIImage(data: $0) }
+        _ = URLSession.shared.dataTaskPublisher(for: request)
+            .map { UIImage(data: $0.data) }
             .replaceError(with: nil)
+            .receive(on: RunLoop.main)
             .sink(receiveValue: { [weak self] image in
                 self?.userImages[user] = image
             })
