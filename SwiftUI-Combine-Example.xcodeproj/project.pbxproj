@@ -18,8 +18,6 @@
 		6B194F1722A710E6001B3151 /* SearchUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1622A710E6001B3151 /* SearchUserResponse.swift */; };
 		6B194F1922A710FF001B3151 /* SearchUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1822A710FF001B3151 /* SearchUserViewModel.swift */; };
 		6B194F1B22A7112D001B3151 /* SearchUserBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1A22A7112D001B3151 /* SearchUserBar.swift */; };
-		6B194F1D22A71154001B3151 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1C22A71154001B3151 /* FoundationExtensions.swift */; };
-		6B194F1F22A71B0F001B3151 /* AnySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B194F1E22A71B0F001B3151 /* AnySubscription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +34,6 @@
 		6B194F1622A710E6001B3151 /* SearchUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserResponse.swift; sourceTree = "<group>"; };
 		6B194F1822A710FF001B3151 /* SearchUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModel.swift; sourceTree = "<group>"; };
 		6B194F1A22A7112D001B3151 /* SearchUserBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserBar.swift; sourceTree = "<group>"; };
-		6B194F1C22A71154001B3151 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
-		6B194F1E22A71B0F001B3151 /* AnySubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySubscription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +72,6 @@
 				6B194F1222A7108C001B3151 /* SearchUserRow.swift */,
 				6B194F1622A710E6001B3151 /* SearchUserResponse.swift */,
 				6B194F1422A710AB001B3151 /* User.swift */,
-				6B194F1E22A71B0F001B3151 /* AnySubscription.swift */,
-				6B194F1C22A71154001B3151 /* FoundationExtensions.swift */,
 				6B194F0022A6BA07001B3151 /* SceneDelegate.swift */,
 				6B194EFE22A6BA07001B3151 /* AppDelegate.swift */,
 				6B194F0422A6BA08001B3151 /* Assets.xcassets */,
@@ -170,11 +164,9 @@
 				6B194F1B22A7112D001B3151 /* SearchUserBar.swift in Sources */,
 				6B194EFF22A6BA07001B3151 /* AppDelegate.swift in Sources */,
 				6B194F0122A6BA07001B3151 /* SceneDelegate.swift in Sources */,
-				6B194F1F22A71B0F001B3151 /* AnySubscription.swift in Sources */,
 				6B194F0322A6BA07001B3151 /* SearchUserView.swift in Sources */,
 				6B194F1922A710FF001B3151 /* SearchUserViewModel.swift in Sources */,
 				6B194F1722A710E6001B3151 /* SearchUserResponse.swift in Sources */,
-				6B194F1D22A71154001B3151 /* FoundationExtensions.swift in Sources */,
 				6B194F1522A710AB001B3151 /* User.swift in Sources */,
 				6B194F1322A7108C001B3151 /* SearchUserRow.swift in Sources */,
 			);
